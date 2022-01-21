@@ -1,17 +1,25 @@
 import Card from "./shared/Card";
 import PropTypes from "prop-types";
-function FeedbackItem({ rating, ratingText }) {
+import { FaTimes } from "react-icons/fa";
+function FeedbackItem({ item, handleDelete }) {
+  function clickHandler() {
+    handleDelete(item.id);
+  }
+
   return (
     <Card>
-      <div className="num-display">{rating}</div>
-      <div className="text-display">{ratingText}</div>
+      <div className="num-display">{item.rating}</div>
+      <button onClick={clickHandler} className="close">
+        <FaTimes color="purple" />
+      </button>
+
+      <div className="text-display">{item.text}</div>
     </Card>
   );
 }
 
 FeedbackItem.propTypes = {
-  rating: PropTypes.number.isRequired,
-  ratingText: PropTypes.string.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 export default FeedbackItem;
