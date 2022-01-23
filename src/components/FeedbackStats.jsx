@@ -1,4 +1,4 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 function FeedbackStats({ feedback }) {
   function getAverageRating() {
@@ -17,5 +17,8 @@ function FeedbackStats({ feedback }) {
     </div>
   );
 }
+FeedbackStats.propTypes = {
+  feedback: PropTypes.array,
+};
 
 export default FeedbackStats;
