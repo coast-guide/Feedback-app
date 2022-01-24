@@ -1,9 +1,13 @@
 import Card from "./shared/Card";
 import PropTypes from "prop-types";
 import { FaTimes } from "react-icons/fa";
-function FeedbackItem({ item, handleDelete }) {
+import { useContext } from "react";
+import FeedbackContext from "../context/FeedbackContext";
+function FeedbackItem({ item }) {
+  const { deleteFeedback } = useContext(FeedbackContext);
+
   function clickHandler() {
-    handleDelete(item.id);
+    deleteFeedback(item.id);
   }
 
   return (
